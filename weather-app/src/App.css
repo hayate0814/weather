@@ -1,0 +1,93 @@
+/* App.css */
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.app-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 8px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.weather-container {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+div {
+  text-align: center;
+}
+.weather-title {
+  margin-bottom: 20px; /* タイトルの下に余白を追加 */
+}
+
+.weather-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.weather-table th,
+.weather-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.weather-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* テーブルの幅を固定 */
+}
+
+.forecast-date {
+  white-space: nowrap; /* テキストの折り返しを防ぐ */
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  animation: colorChange 10s infinite alternate; /* アニメーションの設定 */
+}
+
+@keyframes colorChange {
+  from {
+    background-color: black;
+  }
+  to {
+    background-color: #001f3f; /* 別の色に変化させる */
+  }
+}
