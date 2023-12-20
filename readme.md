@@ -14,6 +14,7 @@ https://code.visualstudio.com/
 - Prettier - Code formatter ★  
   `esbenp.prettier-vscode`
 
+u
   様々な言語の整形を行ってくれる  
 
 - Live Server ★  
