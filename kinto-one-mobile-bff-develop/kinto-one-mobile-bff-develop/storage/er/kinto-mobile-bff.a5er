@@ -1,0 +1,187 @@
+﻿# A5:ER FORMAT:17
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright © 2007 m.matsubara
+# A5:SQL Mk-2 Version 2.18.4 Copyright © 1997 - 2023 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=kinto-mobile-bff
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+UpperCaseKeyword=0
+ShowTag=1
+ShowCommonAttributes=0
+BugFixEntityWidth=1
+
+[Entity]
+PName=login_history
+LName=ログイン履歴
+Comment=
+TableOption=
+Page=MAIN
+Left=50
+Top=50
+Field="ログイン履歴ID","login_history_id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="ユーザーID","user_id","int",,,"","",$FFFFFFFF,""
+Field="メンバーID","member_id","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="最後ログイン日時","login_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",50,50
+ZOrder=-1
+
+[Entity]
+PName=member_contract
+LName=会員契約
+Comment=
+TableOption=
+Page=MAIN
+Left=350
+Top=50
+Field="契約ID","contract_id","int unsigned","NOT NULL",0,"","",$FFFFFFFF,""
+Field="申込ID","application_id","int unsigned","NOT NULL",,"","",$FFFFFFFF,""
+Field="メンバーID","member_id","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="旧契約ID","old_contract_id","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日時","update_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","create_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Index=idx_member_id=0,member_id
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",350,50
+ZOrder=-2
+
+[Entity]
+PName=member_notification_history
+LName=会員通知履歴
+Comment=
+TableOption=
+Page=MAIN
+Left=650
+Top=50
+Field="通知ID","notification_id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="メンバーID","member_id","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="旧契約ID","old_contract_id","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="通知種別","notification_kind_sv","tinyint","NOT NULL",,"","1: 契約ステータス変更",$FFFFFFFF,""
+Field="通知内容タイトル","title","text","NOT NULL",,"","",$FFFFFFFF,""
+Field="通知内容","content","text","NOT NULL",,"","",$FFFFFFFF,""
+Field="既読フラグ","read_flag","tinyint(1)","NOT NULL",,"0","未読、1:既読",$FFFFFFFF,""
+Field="作成日時","create_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Index=idx_member_id=0,member_id
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20231002195946
+Position="MAIN",650,50
+ZOrder=-3
+
+[Entity]
+PName=notification_sent_job
+LName=Push通知送信Job
+Comment=
+TableOption=
+Page=MAIN
+Left=950
+Top=50
+Field="通知送信ID","id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="メンバーID","member_id","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="旧契約ID","old_contract_id","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="通知種別","notification_kind_sv","tinyint","NOT NULL",,"","1: 契約ステータス変更",$FFFFFFFF,""
+Field="通知タイトル","title","text","NOT NULL",,"","",$FFFFFFFF,""
+Field="通知内容","content","text","NOT NULL",,"","",$FFFFFFFF,""
+Field="送信フラグ","sent_flag","tinyint(1)","NOT NULL",,"0","0:未送信, 1:送信済",$FFFFFFFF,""
+Field="更新日時","update_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","create_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",950,50
+ZOrder=-4
+
+[Entity]
+PName=setting_master
+LName=設定マスタ
+Comment=
+TableOption=
+Page=MAIN
+Left=1250
+Top=50
+Field="キー","sm_key","varchar(20)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="バリュー","sm_value","varchar(100)",,,"","",$FFFFFFFF,""
+Field="更新日時","update_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","create_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",1250,50
+ZOrder=-5
+
+[Entity]
+PName=simulation
+LName=シミュレーションデータ
+Comment=
+TableOption=
+Page=MAIN
+Left=1550
+Top=50
+Field="シュミレーションID","simulation_id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="ゲストユーザーID","guest_user_id","int",,,"","所有者がゲストユーザーー場合のみ",$FFFFFFFF,""
+Field="メンバーID","member_id","varchar(32)",,,"","所有者がメンバーの場合のみ",$FFFFFFFF,""
+Field="シミュレーション保存日時","simulation_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="タイトル","title_json","json","NOT NULL",,"","",$FFFFFFFF,""
+Field="シミュレーション保存データ","simulation_json","json","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日時","update_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","create_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Index=idx_guest_user_id=0,guest_user_id
+Index=idx_member_id=0,member_id
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",1550,50
+ZOrder=-6
+
+[Entity]
+PName=user_device
+LName=ユーザー端末
+Comment=
+TableOption=
+Page=MAIN
+Left=1850
+Top=50
+Field="ユーザーID","user_id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="端末識別コード","device_code","varchar(200)","NOT NULL",,"","uuid発行",$FFFFFFFF,""
+Field="端末種別","device_kind_sv","tinyint","NOT NULL",,"","1: android, 2: ios",$FFFFFFFF,""
+Field="通知用トークン","notice_token","text",,,"","",$FFFFFFFF,""
+Field="メンバーID","member_id","varchar(32)",,,"","ユーザログイン後、会員IDを設定",$FFFFFFFF,""
+Field="更新日時","update_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日時","create_datetime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",1850,50
+ZOrder=-7

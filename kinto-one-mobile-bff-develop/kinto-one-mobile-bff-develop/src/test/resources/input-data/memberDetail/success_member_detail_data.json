@@ -1,0 +1,65 @@
+{
+  "id": "MEM-0120001147",
+  "type": "PERSONAL",
+  "email": "devtest-kojin-01@hoge.com",
+  "payment": {
+    "bplatsSalesId": ""
+  },
+  "mailMagazine": {
+    "kintoOne": "true",
+    "offKinto": ""
+  },
+  "mailActive": true,
+  "memberShip": true,
+  "editable": true,
+  "personalMember": {
+    "lastName": "テスト",
+    "firstName": "個人いち",
+    "lastNameKana": "テスト",
+    "firstNameKana": "コジイチ",
+    "gender": "MALE",
+    "birthday": "1980-01-01",
+    "postalCode": "103-0022",
+    "prefecture": "東京都",
+    "city": "中央区",
+    "street": "日本橋室町１－１－１",
+    "addressOther": "",
+    "cityKana": "チュウオウク",
+    "streetKana": "ニホンバシムロマチ",
+    "phoneNumber": "03-1234-5678",
+    "mobilePhoneNumber": "090-1234-5678",
+    "preferredContactPhoneNumber": "03-1234-5678",
+    "preferredContactTimezones": [
+      "0900-1200",
+      "1200-1300"
+    ],
+    "residenceType": "OWNED",
+    "residenceYears": "UNDER_3_YEARS",
+    "isPrimaryIncomeProvider": "Yes",
+    "hasHousingLoan": "Yes",
+    "annualIncome": 700,
+    "hasSpouse": "Yes",
+    "numberOfChildren": 1,
+    "numberOfHousemates": 2,
+    "office": {
+      "job": "SELF_EMPLOYED",
+      "workplaceBusinessStructure": "LIMITED",
+      "workplaceBusinessStructureAffix": "BEFORE",
+      "workplaceName": "ほげほげテック",
+      "workplaceNameKana": "ホゲホゲテック",
+      "workplaceDepartment": "ほげ部",
+      "workplacePosition": "OFFICER",
+      "workplacePostalCode": "103-0021",
+      "workplacePrefecture": "東京都",
+      "workplaceCity": "中央区",
+      "workplaceStreet": "日本橋本石町２－２－２",
+      "workplaceAddressOther": "",
+      "workplaceCityKana": "チュウオウク",
+      "workplaceStreetKana": "ニホンバシホンゴクチョウ",
+      "workplacePhoneNumber": "03-8765-4321",
+      "workplaceHeadOfficeLocation": "東京都",
+      "workplaceContinuousYears": "UNDER_10_YEARS",
+      "workplaceNumberOfEmployees": "OVER_300_TO_UNDER_1000"
+    }
+  }
+}

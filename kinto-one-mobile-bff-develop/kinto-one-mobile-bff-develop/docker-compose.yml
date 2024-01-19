@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mysql:
+    container_name: kinto-mobile-bff-mysql
+    image: mysql:8
+    platform: linux/arm64
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_USER: developer
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./storage/mysql/init:/docker-entrypoint-initdb.d
+      - ./storage/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - 3307:3306

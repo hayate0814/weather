@@ -1,0 +1,581 @@
+name: BFF MOB CI/CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        type: choice
+        description: "デプロイ環境"
+        options:
+          - dev
+          - dev2
+          - stg2
+          - stg3
+          - stg4
+          - stgbiz
+          - inte
+          - prod
+          - sandbox
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d%H%M%S')"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+########################## dev環境 #########################################
+      # デプロイ環境設定
+      # dev環境
+      - name: DEV Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'dev' }}
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_ECR_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_ECR_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: DEV Login to Amazon ECR
+        id: dev-login-ecr
+        if: ${{ github.event.inputs.env == 'dev' }}
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: DEV Build, tag, and push image to Amazon ECR
+        id: dev-build-image
+        if: ${{ github.event.inputs.env == 'dev' }}
+        env:
+          ECR_REGISTRY: ${{ steps.dev-login-ecr.outputs.registry }}
+          ECR_REPOSITORY: vegeta/mob-bff
+          IMAGE_TAG: bff-mob-${{ steps.date.outputs.date }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+     # CD実行環境設定
+      # dev環境
+      - name: DEV Configure AWS CD credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'dev'}}
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_CD_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_CD_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      # デプロイタスク定義文件設定
+      # dev環境
+      - name: DEV Fill in the new image ID in the Amazon ECS task definition
+        id: dev-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        if: ${{ github.event.inputs.env == 'dev' }}
+        with:
+          task-definition: .github/workflows/task/dev-taskdefinition.json
+          container-name: application
+          image: ${{ steps.dev-build-image.outputs.image }}
+
+      # デプロイECS設定
+      # dev環境
+      - name: DEV Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        if: ${{ github.event.inputs.env == 'dev' }}
+        with:
+          task-definition: ${{ steps.dev-task-def.outputs.task-definition }}
+          service: dev-vegeta-mob-bff-service
+          cluster: dev-vegeta-cluster
+          wait-for-service-stability: true
+########################## dev2環境 #########################################
+      # デプロイ環境設定
+      # dev2環境
+      - name: DEV2 Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'dev2' }}
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_ECR_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_ECR_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: DEV2 Login to Amazon ECR
+        id: dev2-login-ecr
+        if: ${{ github.event.inputs.env == 'dev2' }}
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: DEV2 Build, tag, and push image to Amazon ECR
+        id: dev2-build-image
+        if: ${{ github.event.inputs.env == 'dev2' }}
+        env:
+          ECR_REGISTRY: ${{ steps.dev2-login-ecr.outputs.registry }}
+          ECR_REPOSITORY: vegeta/mob-bff
+          IMAGE_TAG: bff-mob-${{ steps.date.outputs.date }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+     # CD実行環境設定
+      # dev2環境
+      - name: DEV2 Configure AWS CD credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'dev2'}}
+        with:
+          aws-access-key-id: ${{ secrets.DEV2_AWS_CD_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV2_AWS_CD_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      # デプロイタスク定義文件設定
+      # dev2環境
+      - name: DEV2 Fill in the new image ID in the Amazon ECS task definition
+        id: dev2-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        if: ${{ github.event.inputs.env == 'dev2' }}
+        with:
+          task-definition: .github/workflows/task/dev2-taskdefinition.json
+          container-name: application
+          image: ${{ steps.dev2-build-image.outputs.image }}
+
+      # デプロイECS設定
+      # dev2環境
+      - name: DEV2 Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        if: ${{ github.event.inputs.env == 'dev2' }}
+        with:
+          task-definition: ${{ steps.dev2-task-def.outputs.task-definition }}
+          service: dev2-vegeta-mob-bff-service
+          cluster: dev2-vegeta-cluster
+          wait-for-service-stability: true
+########################## stg2環境 #########################################
+      # デプロイ環境設定
+      # stg2環境
+      - name: STG2 Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'stg2' }}
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_ECR_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_ECR_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: STG2 Login to Amazon ECR
+        id: stg2-login-ecr
+        if: ${{ github.event.inputs.env == 'stg2' }}
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: STG2 Build, tag, and push image to Amazon ECR
+        id: stg2-build-image
+        if: ${{ github.event.inputs.env == 'stg2' }}
+        env:
+          ECR_REGISTRY: ${{ steps.stg2-login-ecr.outputs.registry }}
+          ECR_REPOSITORY: vegeta/mob-bff
+          IMAGE_TAG: bff-mob-${{ steps.date.outputs.date }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+     # CD実行環境設定
+      # stg2環境
+      - name: STG2 Configure AWS CD credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'stg2'}}
+        with:
+          aws-access-key-id: ${{ secrets.STG2_AWS_CD_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.STG2_AWS_CD_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      # デプロイタスク定義文件設定
+      # stg2環境
+      - name: STG2 Fill in the new image ID in the Amazon ECS task definition
+        id: stg2-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        if: ${{ github.event.inputs.env == 'stg2' }}
+        with:
+          task-definition: .github/workflows/task/stg2-taskdefinition.json
+          container-name: application
+          image: ${{ steps.stg2-build-image.outputs.image }}
+
+      # デプロイECS設定
+      # stg2環境
+      - name: STG2 Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        if: ${{ github.event.inputs.env == 'stg2' }}
+        with:
+          task-definition: ${{ steps.stg2-task-def.outputs.task-definition }}
+          service: stg2-vegeta-mob-bff-service
+          cluster: stg2-vegeta-cluster
+          wait-for-service-stability: true
+########################## stg3環境 #########################################
+      # デプロイ環境設定
+      # stg3環境
+      - name: STG3 Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'stg3' }}
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_ECR_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_ECR_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: STG3 Login to Amazon ECR
+        id: stg3-login-ecr
+        if: ${{ github.event.inputs.env == 'stg3' }}
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: STG3 Build, tag, and push image to Amazon ECR
+        id: stg3-build-image
+        if: ${{ github.event.inputs.env == 'stg3' }}
+        env:
+          ECR_REGISTRY: ${{ steps.stg3-login-ecr.outputs.registry }}
+          ECR_REPOSITORY: vegeta/mob-bff
+          IMAGE_TAG: bff-mob-${{ steps.date.outputs.date }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+     # CD実行環境設定
+      # stg3環境
+      - name: STG3 Configure AWS CD credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'stg3'}}
+        with:
+          aws-access-key-id: ${{ secrets.STG3_AWS_CD_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.STG3_AWS_CD_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      # デプロイタスク定義文件設定
+      # stg3環境
+      - name: STG3 Fill in the new image ID in the Amazon ECS task definition
+        id: stg3-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        if: ${{ github.event.inputs.env == 'stg3' }}
+        with:
+          task-definition: .github/workflows/task/stg3-taskdefinition.json
+          container-name: application
+          image: ${{ steps.stg3-build-image.outputs.image }}
+
+      # デプロイECS設定
+      # stg3環境
+      - name: STG3 Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        if: ${{ github.event.inputs.env == 'stg3' }}
+        with:
+          task-definition: ${{ steps.stg3-task-def.outputs.task-definition }}
+          service: stg3-vegeta-mob-bff-service
+          cluster: stg3-vegeta-cluster
+          wait-for-service-stability: true
+########################## stg4環境 #########################################
+      # デプロイ環境設定
+      # stg4環境
+      - name: STG4 Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'stg4' }}
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_ECR_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_ECR_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: STG4 Login to Amazon ECR
+        id: stg4-login-ecr
+        if: ${{ github.event.inputs.env == 'stg4' }}
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: STG4 Build, tag, and push image to Amazon ECR
+        id: stg4-build-image
+        if: ${{ github.event.inputs.env == 'stg4' }}
+        env:
+          ECR_REGISTRY: ${{ steps.stg4-login-ecr.outputs.registry }}
+          ECR_REPOSITORY: vegeta/mob-bff
+          IMAGE_TAG: bff-mob-${{ steps.date.outputs.date }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+     # CD実行環境設定
+      # stg4環境
+      - name: STG4 Configure AWS CD credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'stg4'}}
+        with:
+          aws-access-key-id: ${{ secrets.STG4_AWS_CD_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.STG4_AWS_CD_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      # デプロイタスク定義文件設定
+      # stg4環境
+      - name: STG4 Fill in the new image ID in the Amazon ECS task definition
+        id: stg4-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        if: ${{ github.event.inputs.env == 'stg4' }}
+        with:
+          task-definition: .github/workflows/task/stg4-taskdefinition.json
+          container-name: application
+          image: ${{ steps.stg4-build-image.outputs.image }}
+
+      # デプロイECS設定
+      # stg4環境
+      - name: STG4 Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        if: ${{ github.event.inputs.env == 'stg4' }}
+        with:
+          task-definition: ${{ steps.stg4-task-def.outputs.task-definition }}
+          service: stg4-vegeta-mob-bff-service
+          cluster: stg4-vegeta-cluster
+          wait-for-service-stability: true
+########################## stgbiz環境 #########################################
+      # デプロイ環境設定
+      # stgbiz環境
+      - name: STGBIZ Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'stgbiz' }}
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_ECR_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_ECR_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: STGBIZ Login to Amazon ECR
+        id: stgbiz-login-ecr
+        if: ${{ github.event.inputs.env == 'stgbiz' }}
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: STGBIZ Build, tag, and push image to Amazon ECR
+        id: stgbiz-build-image
+        if: ${{ github.event.inputs.env == 'stgbiz' }}
+        env:
+          ECR_REGISTRY: ${{ steps.stgbiz-login-ecr.outputs.registry }}
+          ECR_REPOSITORY: vegeta/mob-bff
+          IMAGE_TAG: bff-mob-${{ steps.date.outputs.date }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+     # CD実行環境設定
+      # stgbiz環境
+      - name: STGBIZ Configure AWS CD credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'stgbiz'}}
+        with:
+          aws-access-key-id: ${{ secrets.STGBIZ_AWS_CD_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.STGBIZ_AWS_CD_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      # デプロイタスク定義文件設定
+      # stgbiz環境
+      - name: STGBIZ Fill in the new image ID in the Amazon ECS task definition
+        id: stgbiz-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        if: ${{ github.event.inputs.env == 'stgbiz' }}
+        with:
+          task-definition: .github/workflows/task/stgbiz-taskdefinition.json
+          container-name: application
+          image: ${{ steps.stgbiz-build-image.outputs.image }}
+
+      # デプロイECS設定
+      # stgbiz環境
+      - name: STGBIZ Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        if: ${{ github.event.inputs.env == 'stgbiz' }}
+        with:
+          task-definition: ${{ steps.stgbiz-task-def.outputs.task-definition }}
+          service: stgbiz-vegeta-mob-bff-service
+          cluster: stgbiz-vegeta-cluster
+          wait-for-service-stability: true
+########################## inte環境 #########################################
+      # デプロイ環境設定
+      # inte環境
+      - name: INTE Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'inte' }}
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_ECR_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_ECR_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: INTE Login to Amazon ECR
+        id: inte-login-ecr
+        if: ${{ github.event.inputs.env == 'inte' }}
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: INTE Build, tag, and push image to Amazon ECR
+        id: inte-build-image
+        if: ${{ github.event.inputs.env == 'inte' }}
+        env:
+          ECR_REGISTRY: ${{ steps.inte-login-ecr.outputs.registry }}
+          ECR_REPOSITORY: vegeta/mob-bff
+          IMAGE_TAG: bff-mob-${{ steps.date.outputs.date }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+     # CD実行環境設定
+      # inte環境
+      - name: INTE Configure AWS CD credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'inte'}}
+        with:
+          aws-access-key-id: ${{ secrets.INTE_AWS_CD_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.INTE_AWS_CD_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      # デプロイタスク定義文件設定
+      # inte環境
+      - name: INTE Fill in the new image ID in the Amazon ECS task definition
+        id: inte-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        if: ${{ github.event.inputs.env == 'inte' }}
+        with:
+          task-definition: .github/workflows/task/inte-taskdefinition.json
+          container-name: application
+          image: ${{ steps.inte-build-image.outputs.image }}
+
+      # デプロイECS設定
+      # inte環境
+      - name: INTE Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        if: ${{ github.event.inputs.env == 'inte' }}
+        with:
+          task-definition: ${{ steps.inte-task-def.outputs.task-definition }}
+          service: inte-vegeta-mob-bff-service
+          cluster: inte-vegeta-cluster
+          wait-for-service-stability: true
+########################## prod環境 #########################################
+      # デプロイ環境設定
+      # prod環境
+      - name: PROD Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'prod' }}
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_ECR_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_ECR_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: PROD Login to Amazon ECR
+        id: prod-login-ecr
+        if: ${{ github.event.inputs.env == 'prod' }}
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: PROD Build, tag, and push image to Amazon ECR
+        id: prod-build-image
+        if: ${{ github.event.inputs.env == 'prod' }}
+        env:
+          ECR_REGISTRY: ${{ steps.prod-login-ecr.outputs.registry }}
+          ECR_REPOSITORY: vegeta/mob-bff
+          IMAGE_TAG: bff-mob-${{ steps.date.outputs.date }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+     # CD実行環境設定
+      # prod環境
+      - name: PROD Configure AWS CD credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'prod'}}
+        with:
+          aws-access-key-id: ${{ secrets.PROD_AWS_CD_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PROD_AWS_CD_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      # デプロイタスク定義文件設定
+      # prod環境
+      - name: PROD Fill in the new image ID in the Amazon ECS task definition
+        id: prod-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        if: ${{ github.event.inputs.env == 'prod' }}
+        with:
+          task-definition: .github/workflows/task/prod-taskdefinition.json
+          container-name: application
+          image: ${{ steps.prod-build-image.outputs.image }}
+
+      # デプロイECS設定
+      # prod環境
+      - name: PROD Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        if: ${{ github.event.inputs.env == 'prod' }}
+        with:
+          task-definition: ${{ steps.prod-task-def.outputs.task-definition }}
+          service: prod-vegeta-mob-bff-service
+          cluster: prod-vegeta-cluster
+          wait-for-service-stability: true
+########################## sandbox環境 #########################################
+      # デプロイ環境設定
+      # sanbox環境
+      - name: SANDBOX Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'sandbox' }}
+        with:
+          aws-access-key-id: ${{ secrets.SANDBOX_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.SANDBOX_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: SANDBOX Login to Amazon ECR
+        id: sandbox-login-ecr
+        if: ${{ github.event.inputs.env == 'sandbox' }}
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: SAMDBOX Build, tag, and push image to Amazon ECR
+        id: sandbox-build-image
+        if: ${{ github.event.inputs.env == 'sandbox' }}
+        env:
+          ECR_REGISTRY: ${{ steps.sandbox-login-ecr.outputs.registry }}
+          ECR_REPOSITORY: kinto/bff/mob-001
+          IMAGE_TAG: bff-mob-${{ steps.date.outputs.date }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      # デプロイタスク定義文件設定
+      # sandbox環境
+      - name: SANDBOX Fill in the new image ID in the Amazon ECS task definition
+        id: sandbox-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        if: ${{ github.event.inputs.env == 'sandbox' }}
+        with:
+          task-definition: .github/workflows/task/sandbox-taskdefinition.json
+          container-name: api-001
+          image: ${{ steps.sandbox-build-image.outputs.image }}
+
+      # デプロイECS設定
+      # sandbox環境
+      - name: SANDBOX Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        if: ${{ github.event.inputs.env == 'sandbox' }}
+        with:
+          task-definition: ${{ steps.sandbox-task-def.outputs.task-definition }}
+          service: sandbox-kinto-bff-ecssv-mob-001
+          cluster: sandbox-kinto-bff-ecscl-mob-001
+          wait-for-service-stability: true

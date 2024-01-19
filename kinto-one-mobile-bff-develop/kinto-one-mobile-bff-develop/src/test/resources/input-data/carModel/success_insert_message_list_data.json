@@ -1,0 +1,26 @@
+[
+  {
+    "carModelCode": "ABC123",
+    "insertMessageCarName": "Car Model Name",
+    "insertMessageGradeSelect": "Grade Select",
+    "insertMessageGrade": "Grade",
+    "insertMessageColorSelect": "Color Select",
+    "insertMessageStep1End": "Step 1 End",
+    "insertMessageOptionSelect": "Option Select",
+    "insertMessagePackage": "Package",
+    "insertMessageAddOption": "Add Option",
+    "insertMessageStep2End": "Step 2 End"
+  },
+  {
+    "carModelCode": "ABC123",
+    "insertMessageCarName": "Car Model Name",
+    "insertMessageGradeSelect": "Grade Select",
+    "insertMessageGrade": "Grade",
+    "insertMessageColorSelect": "Color Select",
+    "insertMessageStep1End": "Step 1 End",
+    "insertMessageOptionSelect": "Option Select",
+    "insertMessagePackage": "Package",
+    "insertMessageAddOption": "Add Option",
+    "insertMessageStep2End": "Step 2 End"
+  }
+]

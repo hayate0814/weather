@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "carModelCode": "ROM005",
+      "gradeCode": "G001",
+      "interiorColorPaletteCode": null,
+      "interiorImageFile": "https://stg2-goku-top.kinto-jp.com/s3resource/interior/ROM005FA40.png",
+      "displayOrder": 1,
+      "contractMonths": 84,
+      "tax": 0.1,
+      "id": "ITC-0000007432",
+      "serviceStartedAt": "2022-07-15T13:30:00",
+      "serviceEndedAt": "9999-01-01T00:00:00",
+      "makerCode": "T01",
+      "englishName": "roomy",
+      "code": "INTCOLOR001",
+      "name": "ブラック(ブラウン)",
+      "liningCode": "FA40",
+      "seatColorName": "ファブリック･ブラック×アッシュブラウン",
+      "recommendationComment": null,
+      "taxExcludedMsrp": 0,
+      "taxRate": 0.1,
+      "taxExcludedAdditionalApplicationCharge": 0,
+      "additionalApplicationCharge": 0,
+      "taxExcludedMonthlyPrice": 0,
+      "monthlyPrice": 0,
+      "interiorOptionColor": {
+        "interiorColorId": "ITC-0000007432",
+        "contractMonths": 84,
+        "tax": 0.1,
+        "id": 6665,
+        "name": null,
+        "liningCode": null,
+        "taxExcludedMsrp": 0
+      },
+      "floorMat": {
+        "floorMatCode": "PKGSPEC701",
+        "interiorColorId": "ITC-0000007432",
+        "floorMatWage": 0,
+        "contractMonths": 84,
+        "tax": 0.1,
+        "abbreviation": "フロアマット(ベーシック)",
+        "officialName": "フロアマット(ベーシック)",
+        "accessoryInstallationOrderCode": "A2B1",
+        "taxExcludedMsrp": 17000
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+    "containerDefinitions": [
+      {
+        "name": "api-001",
+        "image": "815210177333.dkr.ecr.ap-northeast-1.amazonaws.com/kinto/bff/mob-001:latest",
+        "cpu": 0,
+        "portMappings": [
+          {
+            "containerPort": 80,
+            "hostPort": 80,
+            "protocol": "tcp"
+          }
+        ],
+        "essential": true,
+        "entryPoint": [],
+        "command": [],
+        "environment": [
+          {
+            "name": "server_port",
+            "value": "80"
+          },
+          {
+            "name": "spring_profiles_active",
+            "value": "server"
+          },
+          {
+            "name": "spring_webflux_base_path",
+            "value": "/kinto_mob_bff"
+          },
+          {
+            "name": "spring_r2dbc_url",
+            "value": "r2dbc:mariadb://sandbox-kinto-dbs-rds-bff-mobdb-001.cluster-cn2rilpxpbpv.ap-northeast-1.rds.amazonaws.com/kinto_mobile_bff?useSSL=false&characterEncoding=utf8t"
+          },
+          {
+            "name": "spring_r2dbc_username",
+            "value": "admin"
+          },
+          {
+            "name": "spring_r2dbc_password",
+            "value": "cVewCagC0"
+          },
+          {
+            "name": "logging_level_root",
+            "value": "info"
+          },
+          {
+            "name": "logging_level_remote_api",
+            "value": "debug"
+          },
+          {
+            "name": "LOGGING_SLACK_CHANNEL",
+            "value": "critical_alert_mobile_bff_api_dev"
+          },
+          {
+            "name": "LOGGING_SLACK_WEBHOOKURI",
+            "value": "https://hooks.slack.com/services/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"
+          },
+          {
+            "name": "LOGGING_SLACK_USERNAME",
+            "value": "mobile-bff-api-dev2"
+          },
+          {
+            "name": "bff_app_latest_version",
+            "value": "1.0"
+          },
+          {
+            "name": "bff_app_upgrade_require",
+            "value": "true"
+          },
+          {
+            "name": "bff_jwt_secret_key",
+            "value": "kinto-app-bff"
+          },
+          {
+            "name": "bff_goku_url",
+            "value": "https://dev-goku-top.kinto-jp.com"
+          },
+          {
+            "name": "BFF_GOKU_CARDATA_URL",
+            "value": "https://kinto-jp.com"
+          },
+          {
+            "name": "bff_jp_id_url",
+            "value": "https://dev-jpid.kinto-jp.com"
+          }
+        ],
+        "mountPoints": [],
+        "volumesFrom": [],
+        "readonlyRootFilesystem": true,
+        "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+            "awslogs-group": "/ecs/sandbox-kinto-bff-ecstd-mob-001",
+            "awslogs-region": "ap-northeast-1",
+            "awslogs-stream-prefix": "ecs"
+          }
+        }
+      }
+    ],
+    "family": "sandbox-kinto-bff-ecstd-mob-001",
+    "taskRoleArn": "arn:aws:iam::815210177333:role/sandbox-kinto-bff-role-mob-001-ecs-task",
+    "executionRoleArn": "arn:aws:iam::815210177333:role/sandbox-kinto-bff-role-mob-001-ecs-task-exec",
+    "networkMode": "awsvpc",
+    "revision": 2,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [],
+    "placementConstraints": [],
+    "compatibilities": ["EC2", "FARGATE"],
+    "requiresCompatibilities": ["FARGATE"],
+    "cpu": "1024",
+    "memory": "2048",
+    "runtimePlatform": {
+      "cpuArchitecture": "X86_64",
+      "operatingSystemFamily": "LINUX"
+    },
+    "tags": [
+      {
+        "key": "bff-mob",
+        "value": "bff-mob"
+      }
+    ]
+  }

@@ -1,0 +1,29 @@
+name: SonarQube
+
+on:
+  pull_request_target:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '00 23 * * SUN' # UTCなので -9 毎週月曜日８時実行
+  #   - cron: '00 23 1 * *' # UTCなので -9 毎月の2日８時実行
+
+jobs:
+  sonar-qube:
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v3
+      - name: JDKのセットアップ
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: gradlewに実行権限付与
+        run: chmod +x gradlew
+      - name: Run SonarQube
+        run: |
+          ./gradlew sonarqube -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+concurrency: sonar_qube

@@ -1,0 +1,29 @@
+name: Google-Java-Format
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'src/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'src/**'
+
+jobs:
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: 'corretto'
+      - uses: axel-op/googlejavaformat-action@v3
+        with:
+          version: v1.17.0
+          args: "--set-exit-if-changed -n"

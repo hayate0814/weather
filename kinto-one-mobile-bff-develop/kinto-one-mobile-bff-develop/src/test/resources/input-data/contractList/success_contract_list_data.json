@@ -1,0 +1,39 @@
+[
+  {
+    "application": {
+      "id": 100,
+      "status": "SEND_MAIL"
+    },
+    "contractCar": {
+      "selectedCarSettings": {
+        "serviceStartedAt": null,
+        "serviceEndedAt": null,
+        "name": null,
+        "grades": [
+          {
+            "name": "テスト",
+            "outerColors": [
+              {
+                "carModelColorImageFile": "テスト"
+              }
+            ]
+          }
+        ]
+      },
+      "carMaintenances": [
+        {
+          "id": 400,
+          "type": "NEW_CAR_INSPECTION",
+          "label": "CAR_INSPECTION",
+          "expectedDate": "2021-12-12"
+        }
+      ],
+      "maintenanceDealer": {
+        "id": 500,
+        "code": "0260130",
+        "staff": "店舗担当者名",
+        "isDeleted": false
+      }
+    }
+  }
+]

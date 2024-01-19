@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.7" />
+  <title>利用規約</title>
+  <style>
+      @charset "UTF-8";
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+button,
+input,
+label,
+select,
+textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1.2;
+  font-family: inherit;
+}
+
+a {
+  color: #009dc5;
+  cursor: pointer;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+a:hover {
+  color: #52c4ee;
+}
+
+[hidden] {
+  display: none;
+}
+
+html {
+  font-size: 100%;
+  font-family: 游ゴシック体, 游ゴシック Medium, Yu Gothic Medium, ヒラギノ角ゴ ProN W3, Hiragino Kaku Gothic ProN, メイリオ, Meiryo, sans-serif;
+}
+
+body {
+  color: #000;
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  padding: 12px;
+}
+
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+* 変数管理用ファイル
+* 色、横幅、マージンなどの数値をここで管理
+*/
+/*
+* mixin管理用ファイル
+* プロジェクト共通で使用するmixinを管理
+*/
+/*
+*規約系スタイルにつき、customer配下にはクラス無いですが
+*表示上、静的から読み込んで展開するため、必要なスタイル
+*
+*/
+.entry-agreement__Agreement .m-txt__normal--right {
+  text-align: right;
+  padding-bottom: 2rem;
+}
+.entry-agreement__Agreement .m-hdg__02 {
+  font-weight: bold;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+.entry-agreement__Agreement .p-terms__txt--normal {
+  margin-bottom: 0;
+  text-align: left;
+}
+.entry-agreement__Agreement .p-terms__cnt--section {
+  margin-bottom: 20px;
+  line-height: 1.75;
+}
+.entry-agreement__Agreement .p-terms__list--normal {
+  margin-bottom: 0;
+  padding-left: 1.6rem;
+}
+.entry-agreement__Agreement .p-terms__list--normal > li {
+  list-style: none;
+  text-indent: -1.6rem;
+}
+.entry-agreement__Agreement .p-terms__list--decimal {
+  margin-bottom: 0;
+}
+.entry-agreement__Agreement .p-terms__list--decimal > li {
+  list-style: decimal;
+}
+.entry-agreement__Agreement .p-terms__list--parenthesis {
+  margin-bottom: 0;
+  padding-left: 3.6rem;
+}
+.entry-agreement__Agreement .p-terms__list--parenthesis > li {
+  list-style: none;
+  text-indent: -3.6rem;
+  counter-increment: cnt;
+}
+.entry-agreement__Agreement .p-terms__list--parenthesis > li:before {
+  content: "（" counter(cnt) "）";
+}
+.entry-agreement__Agreement .p-terms__list--parenthesis--right {
+  margin-bottom: 0;
+  padding-left: 2.4rem;
+}
+.entry-agreement__Agreement .p-terms__list--parenthesis--right > li {
+  list-style: none;
+  text-indent: -2.4rem;
+  counter-increment: r-cnt;
+}
+.entry-agreement__Agreement .p-terms__list--parenthesis--right > li:before {
+  content: counter(r-cnt) "）";
+}
+.entry-agreement__Agreement .p-terms__list--center {
+  padding-left: 0;
+}
+.entry-agreement__Agreement .p-terms__list--center > li {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.entry-agreement__Agreement .m-table__normal th,
+.entry-agreement__Agreement .m-table__normal td {
+  font-weight: normal;
+<!--  font-size: 1.4rem;-->
+  line-height: 1.75;
+  margin: 0;
+  margin-bottom: 24px;
+  padding: 1rem;
+  vertical-align: middle;
+  text-align: left;
+  border-right: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+<!--  border: 1px solid #d3d3d3;-->
+}
+.entry-agreement__Agreement .p-terms__table {
+  margin: 24px 0;
+  border-color: #000;
+  border-spacing: 0;
+  table-layout: fixed;
+  /* KINTO FLEX 別表 */
+}
+.entry-agreement__Agreement .p-terms__table caption {
+  font-weight: normal;
+<!--  font-size: 1.4rem;-->
+  line-height: 1.75;
+  margin-bottom: 0;
+  text-align: left;
+}
+.entry-agreement__Agreement .p-terms__table th,
+.entry-agreement__Agreement .p-terms__table td {
+  border-color: #000;
+  text-indent: 0;
+}
+.entry-agreement__Agreement .p-terms__table thead th {
+  background-color: #6b6b6b;
+  color: #fff;
+}
+.entry-agreement__Agreement .p-terms__table tbody tr:nth-child(even) {
+  background-color: #F4F5F6;
+}
+.entry-agreement__Agreement .p-terms__table--col--10 {
+  width: 10%;
+}
+.entry-agreement__Agreement .p-terms__table--col--25 {
+  width: 25%;
+}
+.entry-agreement__Agreement .p-terms__table--col--75 {
+  width: 75%;
+}
+.entry-agreement__Agreement .p-terms__table--cell--grayout {
+  background: #ccc;
+}
+.entry-agreement__Agreement .p-terms__table--multiline {
+  background: #fff;
+}
+.entry-agreement__Agreement .p-terms__table--multiline tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+.entry-agreement__Agreement .p-terms__table--multiline th {
+  background-color: #F4F5F6;
+  color: #333;
+}
+.entry-agreement__Agreement .p-terms__table--rowgroup tbody {
+  border-bottom: 1px solid #000;
+}
+.entry-agreement__Agreement .p-terms__table--rowgroup tbody th,
+.entry-agreement__Agreement .p-terms__table--rowgroup tbody td {
+  border-bottom-width: 0;
+}
+.entry-agreement__Agreement .p-terms__table--rowgroup tbody tr {
+  background-color: transparent;
+}
+.entry-agreement__Agreement .p-terms__table--rowgroup tbody tr:nth-child(even) {
+  background-color: transparent;
+}
+.entry-agreement__Agreement .p-terms__table--rowgroup tbody:nth-child(even) tr {
+  background-color: #F4F5F6;
+}
+.entry-agreement__Agreement .p-terms__table--rowgroup tbody th {
+  color: inherit;
+  background-color: transparent;
+  font-weight: bold;
+}
+.entry-agreement__Agreement .p-terms__table--price {
+  margin: 0;
+}
+.entry-agreement__Agreement .p-terms__table--price th,
+.entry-agreement__Agreement .p-terms__table--price td {
+  font-size: 1.2rem;
+}
+@media screen and (min-width: 835px) {
+  .entry-agreement__Agreement .p-terms__table--price th,
+.entry-agreement__Agreement .p-terms__table--price td {
+    font-size: 1.4rem;
+  }
+}
+.entry-agreement__Agreement .p-terms__table--price caption:before {
+  content: "●";
+  font-size: 0.8rem;
+  margin-right: 0.2rem;
+  vertical-align: middle;
+}
+.entry-agreement__Agreement .p-terms__table--price caption span {
+  vertical-align: middle;
+}
+.entry-agreement__Agreement .p-terms__table--price--num {
+  text-align: right;
+}
+.entry-agreement__Agreement .p-terms__table + .p-terms__txt--caption {
+  margin-top: -1.2rem;
+}
+.entry-agreement__Agreement .p-terms__table.m-table__str {
+  margin: 0;
+  table-layout: auto;
+}
+.entry-agreement__Agreement .p-terms__table.m-table__str th,
+.entry-agreement__Agreement .p-terms__table.m-table__str td {
+  border-color: #000;
+  text-indent: 0;
+  padding: 0.5em;
+  line-height: 1.75;
+  height: calc(1.75em + 1em);
+  min-width: 1em;
+}
+.entry-agreement__Agreement .p-terms__table.m-table__str thead th {
+  background-color: #6b6b6b;
+  color: #fff;
+}
+.entry-agreement__Agreement .p-terms__table.m-table__str tbody tr:nth-child(even) {
+  background-color: #F4F5F6;
+}
+.entry-agreement__Agreement .p-terms__table.m-table__str tbody th {
+  background-color: #fff;
+  color: #2C353B;
+}
+.entry-agreement__Agreement .p-terms__table.m-table__str tbody td {
+  background-color: #fff;
+  text-align: center;
+}
+.entry-agreement__Agreement table th,
+.entry-agreement__Agreement table td {
+  border: 1px solid #000;
+  padding: 1rem;
+  vertical-align: middle;
+}
+    </style>
+</head>
+<body>
+<div class="entry-agreement__Agreement" style="height: auto;">
+  <div>
+    ${leaseTermsContents}
+  </div>
+</div>
+</body>
+</html>

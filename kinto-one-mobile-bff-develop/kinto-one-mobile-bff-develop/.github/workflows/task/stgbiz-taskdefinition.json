@@ -1,0 +1,223 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "application",
+      "image": "342274811455.dkr.ecr.ap-northeast-1.amazonaws.com/vegeta/mob-bff:latest",
+      "cpu": 128,
+      "memoryReservation": 256,
+      "portMappings": [
+        {
+          "name": "application-80-tcp",
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "SERVER_PORT",
+          "value": "80"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "kinto_vegeta_bff"
+        },
+        {
+          "name": "SPRING_PROFILES_ACTIVE",
+          "value": "server"
+        },
+        {
+          "name": "LOGGING_LEVEL_ROOT",
+          "value": "info"
+        },
+        {
+          "name": "LOGGING_LEVEL_REMOTE_API",
+          "value": "debug"
+        },
+        {
+          "name": "LOGGING_SLACK_CHANNEL",
+          "value": "critical_alert_mobile_bff_api_stg"
+        },
+        {
+          "name": "LOGGING_SLACK_WEBHOOKURI",
+          "value": "https://hooks.slack.com/services/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"
+        },
+        {
+          "name": "LOGGING_SLACK_USERNAME",
+          "value": "mobile-bff-api-stgbiz"
+        },
+        {
+          "name": "BFF_APP_LATEST_TERM_VERSION",
+          "value": "1.0"
+        },
+        {
+          "name": "BFF_APP_UPGRADE_REQUIRE_ANDROID",
+          "value": "1.0.6"
+        },
+        {
+          "name": "BFF_APP_UPGRADE_REQUIRE_IOS",
+          "value": "1.0.5"
+        },
+        {
+          "name": "BFF_APP_LATEST_VERSION_ANDROID",
+          "value": "1.0.6"
+        },
+        {
+          "name": "BFF_APP_LATEST_VERSION_IOS",
+          "value": "1.0.6"
+        },
+        {
+          "name": "BFF_JWT_SECRET_KEY",
+          "value": "kinto-app-bff"
+        },
+        {
+          "name": "BFF_GOKU_URL",
+          "value": "https://stgbiz.kinto-jp.com"
+        },
+        {
+          "name": "BFF_GOKU_CARDATA_URL",
+          "value": "https://stgbiz.kinto-jp.com"
+        },
+        {
+          "name": "BFF_GOKU_INSERTMESSAGE_URL",
+          "value": "https://stgbiz.kinto-jp.com"
+        },
+        {
+          "name": "BFF_JP_ID_URL",
+          "value": "https://stgbiz-jpid.kinto-jp.com"
+        },
+        {
+          "name": "BFF_JP_ID_CLIENT_ID",
+          "value": "stgbiz-idpj-be-client"
+        },
+        {
+          "name": "BFF_JP_ID_SECRET",
+          "value": "gTxXPf3F"
+        },
+        {
+          "name": "MOBILE_API_ACCESS_KEY",
+          "value": "a2ludG9fb25lX21vYmlsZV9iZmZfbm90aWNlX3N0Z2Jpeg=="
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "secrets": [
+        {
+          "name": "MYSQL_HOST",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:447693385755:secret:stgbiz/vegeta/rds/aurora3/mob-bff/developer:host::"
+        },
+        {
+          "name": "MYSQL_PORT",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:447693385755:secret:stgbiz/vegeta/rds/aurora3/mob-bff/developer:port::"
+        },
+        {
+          "name": "MYSQL_USER",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:447693385755:secret:stgbiz/vegeta/rds/aurora3/mob-bff/developer:username::"
+        },
+        {
+          "name": "MYSQL_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:447693385755:secret:stgbiz/vegeta/rds/aurora3/mob-bff/developer:password::"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awsfirelens"
+      }
+    },
+    {
+      "name": "log-router",
+      "image": "342274811455.dkr.ecr.ap-northeast-1.amazonaws.com/infra/log-router:v2.1.0",
+      "cpu": 64,
+      "memoryReservation": 128,
+      "portMappings": [],
+      "essential": true,
+      "environment": [
+        {
+          "name": "LOG_BUCKET_NAME",
+          "value": "stg-application-log-ap-northeast-1"
+        },
+        {
+          "name": "UPLOAD_TIMEOUT",
+          "value": "1m"
+        },
+        {
+          "name": "LOG_GROUP_NAME",
+          "value": "/stgbiz/vegeta/mob-bff"
+        },
+        {
+          "name": "OPENSEARCH_HOST",
+          "value": "vpc-stg-log-platform-erds2kapfyy2bd5dvb56gsfbhm.ap-northeast-1.es.amazonaws.com"
+        },
+        {
+          "name": "INDEX_PREFIX",
+          "value": "stgbiz-vegeta-mob-bff"
+        },
+        {
+          "name": "LOG_STREAM_PREFIX",
+          "value": "ecs/"
+        },
+        {
+          "name": "S3_KEY_FORMAT",
+          "value": "/stgbiz/vegeta/mob-bff/%Y/%m/%d/%H/%M/%S"
+        },
+        {
+          "name": "TIME_KEY",
+          "value": "@timestamp"
+        },
+        {
+          "name": "CONTAINER_NAME",
+          "value": "application"
+        },
+        {
+          "name": "REGION_NAME",
+          "value": "ap-northeast-1"
+        },
+        {
+          "name": "TOTAL_FILE_SIZE",
+          "value": "10M"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "user": "0:1337",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/stgbiz/vegeta/mob-bff/log-router",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "firelens"
+        }
+      },
+      "firelensConfiguration": {
+        "type": "fluentbit",
+        "options": {
+          "config-file-type": "file",
+          "config-file-value": "/fluent-bit/etc/fluent-bit-custom.conf",
+          "enable-ecs-log-metadata": "true"
+        }
+      }
+    }
+  ],
+  "family": "stgbiz-vegeta-mob-bff-task-definition",
+  "taskRoleArn": "arn:aws:iam::447693385755:role/stgbiz-vegeta-mob-bff-task-role",
+  "executionRoleArn": "arn:aws:iam::447693385755:role/stgbiz-vegeta-mob-bff-task-execution-role",
+  "networkMode": "awsvpc",
+  "revision": 2,
+  "volumes": [],
+  "requiresAttributes": [],
+  "placementConstraints": [],
+  "compatibilities": ["EC2", "FARGATE"],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "2048",
+  "tags": [
+    {
+      "key": "Environment",
+      "value": "stgbiz"
+    },
+    {
+      "key": "SID",
+      "value": "vegeta"
+    }
+  ]
+}

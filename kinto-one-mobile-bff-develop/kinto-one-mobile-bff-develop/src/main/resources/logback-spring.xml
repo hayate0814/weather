@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty scope="context" name="appName" source="spring.application.name"
+                    defaultValue="vegeta-bff-api"/>
+    <property name="version" value="0.0.1-SNAPSHOT" />
+    <springProperty scope="context" name="rootLoggerLevel" source="logging.level.root"
+                    defaultValue="DEBUG"/>
+    <springProperty scope="context" name="remoteApiLogLevel"
+                    source="logging.level.remote-api" defaultValue="DEBUG"/>
+    <springProperty scope="context" name="slackChannel" source="logging.slack.channel"/>
+    <springProperty scope="context" name="slackHookUrl" source="logging.slack.webhookUri"/>
+    <springProperty scope="context" name="slackUserName" source="logging.slack.username"/>
+
+    <timestamp key="timestamp" datePattern="yyyyMMdd'-'HHmmss"/>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="json" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <jsonGeneratorDecorator
+                    class="net.logstash.logback.decorate.CompositeJsonGeneratorDecorator">
+                <decorator class="net.logstash.logback.mask.MaskingJsonGeneratorDecorator">
+
+                </decorator>
+            </jsonGeneratorDecorator>
+
+            <includeContext>false</includeContext>
+            <timeZone>UTC</timeZone>
+            <includeCallerData>true</includeCallerData>
+            <fieldNames>
+                <timestamp>@timestamp</timestamp>
+                <version>[ignore]</version>
+                <thread>[ignore]</thread>
+                <levelValue>[ignore]</levelValue>
+                <message>message</message>
+                <stackTrace>stack_trace</stackTrace>
+            </fieldNames>
+            <includeMdcKeyName>mdcKeyToInclude</includeMdcKeyName>
+            <!-- includeContext:falseにする必要がある -->
+            <customFields>{"hostname":"${HOSTNAME}"}</customFields>
+        </encoder>
+    </appender>
+
+    <appender name="logToSlack" class="com.github.maricn.logback.SlackAppender">
+        <webhookUri>${slackHookUrl}</webhookUri>
+        <channel>${slackChannel}</channel>
+        <iconEmoji>:blue_car:</iconEmoji>
+        <colorCoding>true</colorCoding>
+
+        <username>${slackUserName}</username>
+        <!-- Formatting -->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%-4relative [%thread] %-5level %class - %msg%n</pattern>
+        </layout>
+    </appender>
+    <appender name="asyncLogToSlack" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="logToSlack" />
+    </appender>
+
+    <springProfile name="server">
+        <contextName>${appName}</contextName>
+        <logger name="org.springframework" level="info"/>
+        <logger name="bff.remote.api" level="${remoteApiLogLevel}"/>
+        <logger name="slack.notice.logger" level="warn">
+            <appender-ref ref="asyncLogToSlack" />
+        </logger>
+
+        <root level="${rootLoggerLevel}">
+            <appender-ref ref="json"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="local">
+
+        <logger name="org.springframework" level="info"/>
+        <logger name="org.springframework.r2dbc" level="debug"/>
+        <logger name="org.springframework.security" level="debug"/>
+        <logger name="bff.remote.api" level="${remoteApiLogLevel}"/>
+        <logger name="slack.notice.logger" level="warn" />
+
+        <root level="debug">
+            <appender-ref ref="stdout"/>
+        </root>
+    </springProfile>
+
+</configuration>

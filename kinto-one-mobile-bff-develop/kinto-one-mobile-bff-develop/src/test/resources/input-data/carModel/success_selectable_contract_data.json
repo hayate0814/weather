@@ -1,0 +1,19 @@
+{
+  "testDriveReservationUrl" : "https://toyota.jp/service/store-search/dc/map-search?mode=trial&CATALOG_CAR_CD=001toyota_land cruiser_001_p_013",
+  "toyotaLexusUrl" : "https://toyota.jp/landcruiser/",
+  "pamphletUrl" : "https://faq.kinto-jp.com/usr/file/attachment/byTK5PJj4nLKDEJH.pdf",
+  "tax" : 0.1,
+  "id" : "CAR-0000000356",
+  "makerId" : "MAN-0000000009",
+  "makerCode" : "T01",
+  "makerName" : "TOYOTA",
+  "serviceStartedAt" : "2023-05-12T03:27:17.664238075",
+  "serviceEndedAt" : "2023-05-12T03:27:17.664245075",
+  "code" : "LAN003",
+  "name" : "ランドクルーザー",
+  "englishName" : "landcruiser",
+  "url" : "",
+  "taxExcludedDesiredNumberPlatePrice" : 200,
+  "contractMonths" : [ 36, 60, 84 ],
+  "bonusPayments" : [ 0, 100000, 20000 ]
+}

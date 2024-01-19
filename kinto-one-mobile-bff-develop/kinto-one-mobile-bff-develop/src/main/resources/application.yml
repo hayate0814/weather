@@ -1,0 +1,52 @@
+server:
+  port: ${SERVER_PORT:3030}
+
+spring:
+  application:
+    name: vegeta-bff-api
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+  webflux:
+    base-path:
+  r2dbc:
+    url: r2dbc:mariadb://${MYSQL_HOST:localhost}:${MYSQL_PORT:3307}/${DB_NAME:kinto_vegeta_bff}?useSSL=false&characterEncoding=utf8&tinyInt1isBit=false
+    username: ${MYSQL_USER:developer}
+    password: ${MYSQL_PASSWORD:password}
+  codec:
+    max-in-memory-size: 100MB
+
+logging:
+  level:
+    root: ${LOGGING_LEVEL_ROOT:info}
+    remote-api: ${LOGGING_LEVEL_REMOTE_API:debug}
+  slack:
+    channel: ${LOGGING_SLACK_CHANNEL:critical_alert_mobile_bff_api_dev}
+    webhookUri: ${LOGGING_SLACK_WEBHOOKURI:https://hooks.slack.com/services/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}
+    username: ${LOGGING_SLACK_USERNAME:mobile-bff-api-local}
+
+bff:
+  app:
+    latest-version-android: ${BFF_APP_LATEST_VERSION_ANDROID:1.0.0}
+    latest-version-ios: ${BFF_APP_LATEST_VERSION_IOS:1.0.0}
+    upgrade-require-android: ${BFF_APP_UPGRADE_REQUIRE_ANDROID:1.0.0}
+    upgrade-require-ios: ${BFF_APP_UPGRADE_REQUIRE_IOS:1.0.0}
+    latest-term-version: ${BFF_APP_LATEST_TERM_VERSION:1.0}
+  jwt:
+    secret-key: ${BFF_JWT_SECRET_KEY:kinto-app-bff}
+  goku:
+    url: ${BFF_GOKU_URL:https://stg4.kinto-jp.com}
+    cardata-url: ${BFF_GOKU_CARDATA_URL:https://stg4.kinto-jp.com}
+    insertMessage-url: ${BFF_GOKU_INSERTMESSAGE_URL:https://stg4.kinto-jp.com}
+  jp-id:
+    url: ${BFF_JP_ID_URL:https://stg4-jpid.kinto-jp.com}
+    clientId: ${BFF_JP_ID_CLIENT_ID:stg4-idpj-be-client}
+    secret: ${BFF_JP_ID_SECRET:gTxXPf3F}
+  yahoo:
+    url: ${BFF_YAHOO_URL:https://map.yahooapis.jp/geocode/V1/geoCoder}
+    key: ${BFF_YAHOO_KEY:dj00aiZpPXlGb3lnd09QVUllNyZzPWNvbnN1bWVyc2VjcmV0Jng9NzE-}
+  notice:
+    mobile-api-access-key:  ${MOBILE_API_ACCESS_KEY:a2ludG9fb25lX21vYmlsZQ==}
+  ocr:
+    url: ${OCR_URL:https://cloud.mediadrive.jp}
+    user: ${OCR_USER:A002069001}
+    pass: ${OCR_PASS:r0tBmzcE7UQvvop0}

@@ -1,0 +1,12 @@
+[ {
+  "carModelCode" : "AGP001",
+  "gradeCode" : "G001",
+  "isConnectedCarCare" : false,
+  "isExcludedProcare10" : false,
+  "isUnlimited" : true,
+  "isGr" : true,
+  "isMorizou" : false,
+  "isDigitalKey" : true,
+  "isForKintoCoreContract" : null,
+  "tconnect" : "FULL_COVERAGE"
+} ]

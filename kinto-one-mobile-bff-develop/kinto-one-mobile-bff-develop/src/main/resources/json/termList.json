@@ -1,0 +1,98 @@
+[
+  {
+    "checkbox": false,
+    "title": "お申し込み手続きについて確認しました",
+    "description": "<section><div class=\"im-text-list\">お申し込み手続き後送信させて頂く、<span class=\"im-text-red im-text-bold\">お申し込み確認メール本文に記載のURLを48時間以内にクリックされて初めてお申し込み手続き完了（審査開始）となりますのでご注意ください。</span></div><div class=\"im-text-list\">お申し込み完了後、審査結果を3営業日以内を目安にメールでご連絡いたします。</div><div class=\"im-text-list\">審査結果をご確認後、My KINTOへログインし、ご契約のお手続きをお願いいたします。</div><div></div><div><span class=\"im-text-red\">【ご注意】</span></div><div>※メールの受信設定をしている方は、<span class=\"im-text-red\">以下ドメインまたはメールアドレスからのメールを受取れるよう設定</span>してください。</div><div>@kinto-jp.comまたはnotify@kinto-jp.com</div><div>※メールが届かない方は<span class=\"im-text-red im-text-bold\">「迷惑メールフォルダ」など</span>もご確認ください。</div><div></div><div>お申し込み手続きの完了が確認できないときは、原則、お申し込みから30日を目途にお申し込みを取消させていただきます。</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "取扱い販売店（納車・メンテナンス含む）は、GRガレージのみになることについて同意しました",
+    "description": "<section><div class=\"im-text-list\">なお、引っ越し時など契約期中での販売店変更時についても、GRガレージのみ選択可能となります。</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "メンテナンス項目において、本サイトに記載するメンテナンスサービス項目の内容となることについて、同意しました",
+    "description": "<section><div class=\"im-text-list\"><span class=\"im-text-red im-text-bold\">KINTO ONE トヨタのその他車種で含まれるメンテナンス項目のタイヤ交換は、当該車種においてはメンテナンス対象外となります。メンテナンス項目は</span><a href=\"https://kinto-jp.com/kinto_one/maintenance/\">こちら</a></div></section>",
+  "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "お支払い方法について同意しました",
+    "description": "<section><div>クレジットカード払いまたは口座振替（自動引落）からご選択いただけます</div><div></div><div>【クレジットカード払いの方】</div><div>個人契約の方：契約者と同一名義の個人クレジットカードが必要です</div><div>法人契約の方：契約者である法人の法人カードが必要です</div><div></div><div>【口座振替（自動引落）の方】</div><div>個人契約の方：契約者名義の口座に限ります</div><div>法人契約の方：法人名義の口座に限ります</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "申込金のお支払いについて確認しました",
+    "description": "<section><div class=\"im-text-list\">申込金はクレジットカード払いのみとなります。</div><div>　個人契約の方：契約者と同一名義の個人クレジットカードが必要です</div><div>　法人契約の方：契約者である法人の法人カードが必要です</div><div class=\"im-text-list\">審査完了後、契約締結ボタンを押下した際に</div><div>　ご指定のクレジットカードへご請求させていただきます。</div><div><span class=\"im-text-red\">※金額が高額になるため、クレジットカードの利用限度額にご注意ください。</span></div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "月額利用料のお支払いについて確認しました",
+    "description": "<section><div class=\"im-text-list\">月額利用料金はクレジットカード払い/口座振替（自動引落）からご選択いただけます。</div><div>　クレジットカード払いをご希望の場合、申込金のお支払いと同一カードでのお支払いとなります。</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "解約時における申込金の扱いについて確認しました",
+    "description": "<section><div class=\"im-text-list\">お支払いいただいた申込金の返金は行っておりません。</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "納期について確認しました",
+    "description": "<section><div class=\"im-text-list im-text-red\"><span class=\"im-text-red im-text-bold\">自動車の納期（目安）に関しては</span><a class=\"im-text-bold\" href=\"https://faq.kinto-jp.com/faq/show/13?back=front%2Fcategory%3Asearch&category_id=119&commit=&keyword=%E7%B4%8D%E6%9C%9F%E3%81%BE%E3%81%A7&morph=1&page=1&site_domain=default&site_id=1&sort=sort_keyword&sort_order=desc&utf8=%E2%9C%93\">こちら</a><span class=\"im-text-red im-text-bold\">にてご確認ください。</span></div><div>※自動車メーカーからの工場出荷後に納車準備期間として1ヶ月ほどお時間を頂く場合があります</div><div>詳しい情報についてはお客様がご選択された担当販売店にご確認ください</div><div>※表記している納期は<span class=\"im-text-red im-text-bold\">審査承認後「契約締結」時点のものとなり、審査お申し込み時点とは異なる場合があります</span></div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "申し込んだ車両が車庫（手配予定含む）に入ることを確認しました",
+    "description": "<section><div class=\"im-text-list\">車庫証明取得には、お申し込みいただいた車両が車庫に駐車できる必要があります。</div><div>　車庫の大きさをご確認ください。車のサイズについては<a href=\"https://faq.kinto-jp.com/faq/show/880?site_domain=default\">こちら</a></div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "禁止事項について同意しました",
+    "description": "<section><div class=\"im-text-list\">以下の場合を除き、電子タバコを含む喫煙、車両の改造、競技・サーキット走行等は禁止事項に該当します</div><div>＜認められる車両の改造＞</div><div class=\"im-text-list\">違法改造に該当しないもの</div><div class=\"im-text-list\">構造変更等検査及び車検証の記載変更申請を伴う改造に該当しないもの</div><div class=\"im-text-list\">原状復帰に支障を来さない改造</div><div>※車両返却時は原状回復した状態でご返却ください。返却時の車両状態の自己申告の結果、原状回復費用が発生する場合がございます。詳しくは<a href=\"https://kinto-jp.com/kinto_one/expiration/\">こちら</a></div><div>＜認められるサーキット走行＞</div><div>トヨタ自動車、トヨタ正規販売店、KINTOが実施する体験走行会での試乗（競技走行は禁止）</div><div>※サーキット内での事故は、保険約款の免責事由に該当するため、お客様自身で損害保険契約を締結頂くか、事故時の損害は自己負担となります</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "禁止事項について同意しました",
+    "description": "<section><div class=\"im-text-list\">電子タバコを含む喫煙、車両の改造、競技・サーキット走行等は禁止事項に該当します</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "個人情報等の取扱いに関する注意について同意しました",
+    "description": "<section><div class=\"im-text-list\">お申し込み者が申し込みされ、または契約された事実に関する情報は、与信判断および与信後の管理のため、保証会社トヨタファイナンス株式会社が加盟する個人信用情報機関へ登録され、当該機関の加盟与信業者および当該機関と提携する他個人信用情報機関の加盟与信業者より利用されます</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "契約者および連帯保証人が以下のいずれにも該当しないことに同意しました",
+    "description": "<section><div>契約者および連帯保証人は現在、次のいずれにも該当しないことを表明し、かつ将来にわたっても該当しないことを確約します</div><div>① 暴力団、② 暴力団員、③ 暴力団準構成員、④ 暴力団関係企業、⑤総会屋等、社会運動等標ぼうゴロまたは特殊知能暴力集団等、⑥その他上記①～⑤に準ずる者。</div><div>また、第三者を利用して次の事項に該当する行為を行わないことを確約します</div><div>① 暴力的な要求行為、② 法的な責任を超えた要求行為、③ リース契約に関して、脅迫的な言動をし、または暴力を用いる行為、④ 風説を流布し、偽計を用いまたは威力を用いて株式会社KINTO（以下、「当社」という）の信用を毀損し、または当社の業務を妨害する行為、⑤ その他上記①～④に準ずる行為</div><div>加えて、上記に該当する者へ運転させないことを確約します。</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": false,
+    "title": "中途解約について以下確認しました",
+    "description": "<section><div class=\"im-text-list\">リース料のお支払いを怠っているとき、およびリース料全額一括支払事由に該当するときは、中途解約はできません。</div><div class=\"im-text-list\">ご利用いただいた期間のリース料未払い分がある場合は、中途解約金とあわせてお支払いいただきます。</div><div class=\"im-text-list\">予定の期日までに中途解約金のお支払いおよび、お車のご返却の何れか一方が完了していない場合は、中途解約は不成立となります。中途解約が不成立となった場合、中途解約の手続きにあたりKINTOが負担した費用（輸送、保管、返金等に係る各費用）については契約者が負担するものとします。</div></section>",
+    "term": null
+  },
+  {
+    "checkbox": true,
+    "title": "別途T-Connectのお申し込みが必須であることを確認しました",
+    "description": "<section><div class=\"im-text-list\">KINTOご契約後にトヨタコネクティッド株式会社及びトヨタ自動車株式会社の提供するトヨタブランドの自動車向け情報通信サービス「T-Connect」の基本サービスへのお申し込みが必須です（サービス内容は<a href=\"https://toyota.jp/tconnectservice/service/\">こちら</a>）。</div><div class=\"im-text-list\">T-Connect基本サービスの利用料はKINTO月額利用料に含まれます。</div><div class=\"im-text-list\">KINTOとT-Connectのご契約期間は同一です。KINTOご契約中にT-Connectのみをご解約いただくことはできません。</div></section>",
+    "term": "https://kinto-jp.com/terms/toyota/index.html"
+  },
+  {
+    "checkbox": true,
+    "title": "規約、規定について承諾・同意しました",
+    "description": "<section><div class=\"im-text-list\">「リース利用規約（リース契約条項・リース契約条項の契約終了時の特約事項・保証委託契約条項・個人情報等の収集・利用・提供に関する同意規定）」について、確認し承諾します</div></section>",
+    "term": null
+  }
+]

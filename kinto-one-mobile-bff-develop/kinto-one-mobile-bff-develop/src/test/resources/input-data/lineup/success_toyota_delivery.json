@@ -1,0 +1,545 @@
+{
+  "data": [
+    {
+      "name": "プリウス",
+      "car_model_code": "UPR001",
+      "specialCarType": "Uグレード",
+      "deliveryDateComment": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます)",
+      "car_model_english_name": "u-prius",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます。納車が満了日を超えないよう余裕をもってお申込みください)"
+    },
+    {
+      "name": "プリウス",
+      "car_model_code": "UAP001",
+      "specialCarType": "Uグレード モデリスタ仕様",
+      "deliveryDateComment": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます)",
+      "car_model_english_name": "aerou-prius",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます。納車が満了日を超えないよう余裕をもってお申込みください)"
+    },
+    {
+      "name": "プリウス",
+      "car_model_code": "PRI006",
+      "specialCarType": "Z/Gグレード",
+      "deliveryDateComment": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます)",
+      "car_model_english_name": "prius",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます。納車が満了日を超えないよう余裕をもってお申込みください)"
+    },
+    {
+      "name": "プリウス",
+      "car_model_code": "APS004",
+      "specialCarType": "Zグレード モデリスタ仕様",
+      "deliveryDateComment": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます)",
+      "car_model_english_name": "aeroprius",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます。納車が満了日を超えないよう余裕をもってお申込みください)"
+    },
+    {
+      "name": "プリウス",
+      "car_model_code": "AGP001",
+      "specialCarType": "Zグレード GRパーツ仕様",
+      "deliveryDateComment": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます)",
+      "car_model_english_name": "aeroprius2",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "3ヶ月程度(受注状況によっては大幅に遅れが発生する場合がございます。納車が満了日を超えないよう余裕をもってお申込みください)"
+    },
+    {
+      "name": "bZ4X",
+      "car_model_code": "B4X002",
+      "specialCarType": "",
+      "deliveryDateComment": "3～4ヶ月程度",
+      "car_model_english_name": "bz4x",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "シエンタ",
+      "car_model_code": "SIF001",
+      "specialCarType": "ファンツールパッケージ仕様",
+      "deliveryDateComment": "ガソリン:1.5～2ヶ月程度/ハイブリッド:3ヶ月程度",
+      "car_model_english_name": "sientafun",
+      "cs_deliveryDateComment": "ガソリン:1.5～2ヶ月程度/ハイブリッド:3ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "ガソリン:1.5～2ヶ月程度/ハイブリッド:3ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "アルファード",
+      "car_model_code": "AAP001",
+      "specialCarType": "モデリスタ仕様 AERO KIT Ⅱ for AERO BODY",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aeroalphard2",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "ノア",
+      "car_model_code": "ANO002",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "aeronoah",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "GR 86",
+      "car_model_code": "GES003",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "gr86",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "GR 86",
+      "car_model_code": "AGE003",
+      "specialCarType": "GRパーツ仕様",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aerogr86",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "カローラ クロス",
+      "car_model_code": "COC002",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "corollacross",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "カローラ クロス",
+      "car_model_code": "ACO002",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aerocorollacross",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "アルファード",
+      "car_model_code": "AAL005",
+      "specialCarType": "モデリスタ仕様 AERO KIT Ⅳ for \"\"TYPE GOLD Ⅲ\"\"",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aeroalphard",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "ヤリス クロス",
+      "car_model_code": "AAY004",
+      "specialCarType": "モデリスタ仕様 ADVANCE  ROBUST STYLE",
+      "deliveryDateComment": "7ヶ月程度",
+      "car_model_english_name": "aeroadyariscross",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "7ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "C-HR",
+      "car_model_code": "ACH003",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aeroc-hr",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "0"
+    },
+    {
+      "name": "ヤリス クロス",
+      "car_model_code": "AEY004",
+      "specialCarType": "モデリスタ仕様 ELEGANT  ICE STYLE",
+      "deliveryDateComment": "7ヶ月程度",
+      "car_model_english_name": "aeroelyariscross",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "7ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ハリアー",
+      "car_model_code": "AHA002",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aeroharrier",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "ランドクルーザー",
+      "car_model_code": "ALA001",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aerolandcruiser",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "アルファード",
+      "car_model_code": "ALP007",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "alphard",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "ランドクルーザー プラド",
+      "car_model_code": "APR003",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aeroprado",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "アクア",
+      "car_model_code": "AQU007",
+      "specialCarType": "",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "aqua",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ライズ",
+      "car_model_code": "ARA003",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "ガソリン:1.5～2ヶ月程度/ハイブリッド:6.5ヶ月程度",
+      "car_model_english_name": "aeroraize",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "ガソリン:1.5～2ヶ月程度/ハイブリッド:6.5ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "RAV4",
+      "car_model_code": "ARV003",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "aerorav4",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ヴォクシー",
+      "car_model_code": "AVO003",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "aerovoxy",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "アクア",
+      "car_model_code": "CAQ003",
+      "specialCarType": "乗降サポート機能（シート回転タイプ）",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "aquacare",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "C-HR",
+      "car_model_code": "CHR005",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "c-hr",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "0"
+    },
+    {
+      "name": "カローラ スポーツ",
+      "car_model_code": "CLS006",
+      "specialCarType": "",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "corollasport",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "カローラ ツーリング",
+      "car_model_code": "CRT006",
+      "specialCarType": "",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "corollatouring",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ヤリス",
+      "car_model_code": "CYA002",
+      "specialCarType": "乗降サポート機能（シート回転タイプ）",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "yariscare",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ヤリス クロス",
+      "car_model_code": "CYC003",
+      "specialCarType": "乗降サポート機能（シート回転タイプ）",
+      "deliveryDateComment": "7ヶ月程度",
+      "car_model_english_name": "yariscrosscare",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "7ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "GRヤリス　RS",
+      "car_model_code": "GRY004",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "gryarisrs",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "GRヤリス　RZ\\\"\"High performance\\\"\"(マニュアル車）",
+      "car_model_code": "GYR004",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "gryaris",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "ハリアー",
+      "car_model_code": "HAR005",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "harrier",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "ランドクルーザー",
+      "car_model_code": "LAN003",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "landcruiser",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "GRヤリス “モリゾウセレクション”(マニュアル車）",
+      "car_model_code": "MYR005",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "gryarisms",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "ノア",
+      "car_model_code": "NOA006",
+      "specialCarType": "",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "noah",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度[新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "パッソ",
+      "car_model_code": "PAS004",
+      "specialCarType": "",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "passo",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ランドクルーザー プラド",
+      "car_model_code": "PRA005",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "landcruiserprado",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "ライズ",
+      "car_model_code": "RAI004",
+      "specialCarType": "",
+      "deliveryDateComment": "ガソリン:1.5～2ヶ月程度/ハイブリッド:6.5ヶ月程度",
+      "car_model_english_name": "raize",
+      "cs_deliveryDateComment": "ガソリン:1.5～2ヶ月程度/ハイブリッド:6.5ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "ガソリン:1.5～2ヶ月程度/ハイブリッド:6.5ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "RAV4",
+      "car_model_code": "RAV005",
+      "specialCarType": "",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "rav4",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ルーミー",
+      "car_model_code": "ROM005",
+      "specialCarType": "",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "roomy",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "シエンタ",
+      "car_model_code": "SIE005",
+      "specialCarType": "",
+      "deliveryDateComment": "ガソリン:1.5～2ヶ月程度/ハイブリッド:3ヶ月程度",
+      "car_model_english_name": "sienta",
+      "cs_deliveryDateComment": "ガソリン:1.5～2ヶ月程度/ハイブリッド:3ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "ガソリン:1.5～2ヶ月程度/ハイブリッド:3ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ヤリス",
+      "car_model_code": "SYR003",
+      "specialCarType": "G“KINTOツーリングセレクション”",
+      "deliveryDateComment": "",
+      "car_model_english_name": "ktsyaris",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "ヴォクシー",
+      "car_model_code": "VOX006",
+      "specialCarType": "",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "voxy",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "クラウン",
+      "car_model_code": "ACN001",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "3.5ヶ月程度",
+      "car_model_english_name": "aerocrown",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": "3.5ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "クラウン",
+      "car_model_code": "CRN001",
+      "specialCarType": "",
+      "deliveryDateComment": "3.5ヶ月程度(\"CROSSOVER G\"は'23/4月以降を予定)",
+      "car_model_english_name": "crown",
+      "cs_deliveryDateComment": "3.5ヶ月程度(\"CROSSOVER G\"は'23/4月以降を予定) [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "3.5ヶ月程度(\"CROSSOVER G\"は'23/4月以降を予定)(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ヤリス クロス",
+      "car_model_code": "YRC004",
+      "specialCarType": "",
+      "deliveryDateComment": "ガソリン:4ヶ月程度/ハイブリッド:7ヶ月程度",
+      "car_model_english_name": "yariscross",
+      "cs_deliveryDateComment": "ガソリン:4ヶ月程度/ハイブリッド:7ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "ガソリン:4ヶ月程度/ハイブリッド:7ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ヤリス",
+      "car_model_code": "YRS005",
+      "specialCarType": "2WD",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "yaris",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ヤリス",
+      "car_model_code": "YRA002",
+      "specialCarType": "4WD",
+      "deliveryDateComment": "1.5～2ヶ月程度",
+      "car_model_english_name": "yaris4wd",
+      "cs_deliveryDateComment": "1.5～2ヶ月程度 [新型コロナウイルス感染拡大等により＋1ヶ月程度、または場合によってはそれ以上の遅延可能性あり]",
+      "deliveryDateComment_dealer_trade": "1.5～2ヶ月程度(納車が満了日を超えないようご注意ください)"
+    },
+    {
+      "name": "ES",
+      "car_model_code": "LES005",
+      "specialCarType": "",
+      "deliveryDateComment": "約3.0ヶ月",
+      "car_model_english_name": "es",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "IS",
+      "car_model_code": "LIS004",
+      "specialCarType": "",
+      "deliveryDateComment": "約3.0ヶ月",
+      "car_model_english_name": "is",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "LS",
+      "car_model_code": "LLS003",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "ls",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "LX",
+      "car_model_code": "LLX003",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "lx",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "NX",
+      "car_model_code": "LNX002",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "nx",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "RC",
+      "car_model_code": "LRC005",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "rc",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "RX",
+      "car_model_code": "LRX002",
+      "specialCarType": "",
+      "deliveryDateComment": "",
+      "car_model_english_name": "rx",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "UX",
+      "car_model_code": "LUX005",
+      "specialCarType": "",
+      "deliveryDateComment": "約8.0ヶ月",
+      "car_model_english_name": "ux",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "LX",
+      "car_model_code": "ALX001",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aerolx",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    },
+    {
+      "name": "RX",
+      "car_model_code": "ARX001",
+      "specialCarType": "モデリスタ仕様",
+      "deliveryDateComment": "",
+      "car_model_english_name": "aerorx",
+      "cs_deliveryDateComment": "",
+      "deliveryDateComment_dealer_trade": ""
+    }
+  ],
+  "lastUpdate": "2023年1月10日"
+}
